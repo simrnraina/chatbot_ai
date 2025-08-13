@@ -1,0 +1,240 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["Hi", "Hello", "Hey there", "Good morning", "Good afternoon", "Good evening", "How are you?", "What's up?", "Is anyone there?", "Hey"],
+      "responses": ["Hello! How can I assist you today?", "Hi there! What can I do for you?", "Greetings! How may I help?", "Hi! I'm here to help with motivation, productivity, and more."]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you later", "Goodbye", "I have to go", "Talk to you later", "See ya", "Catch you later", "I'm leaving"],
+      "responses": ["Goodbye! Have a wonderful day!", "See you soon! Stay productive!", "Take care! Remember I'm here when you need me.", "Bye! Don't forget to drink water!"]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "That's helpful", "I appreciate it", "Thanks a lot", "Thank you so much"],
+      "responses": ["You're welcome!", "Happy to help!", "Anytime! That's what I'm here for.", "Glad I could assist you!"]
+    },
+    {
+      "tag": "bot_identity",
+      "patterns": ["What is your name?", "Who are you?", "Tell me about yourself", "Who made you?", "Are you a robot?", "What can you do?"],
+      "responses": ["I'm SR AI Assistant, your personal helper for productivity, wellness and motivation!", "I'm an AI assistant created by Simran to help with your daily tasks and self-improvement.", "I'm your digital assistant - here to help with tasks, motivation, and personal growth!"]
+    },
+    
+    
+    {
+      "tag": "productivity_general",
+      "patterns": ["How can I be more productive?", "Productivity tips", "I need to get more done", "Help me be productive"],
+      "responses": [
+        "Try the Pomodoro technique: 25 minutes work, 5 minute break.",
+        "Start with your most important task first (MIT).",
+        "Make a prioritized to-do list each morning.",
+        "Eliminate distractions by turning off notifications."
+      ]
+    },
+    {
+      "tag": "time_management",
+      "patterns": ["How to manage time better?", "Time management tips", "I waste too much time"],
+      "responses": [
+        "Use time blocking - assign specific times for tasks.",
+        "Track your time for a week to identify time-wasters.",
+        "Learn to say no to non-essential tasks.",
+        "Try the 2-minute rule: if it takes <2 mins, do it now."
+      ]
+    },
+    
+    {
+      "tag": "focus_help",
+      "patterns": ["I can't focus", "Help me concentrate", "Distractions", "Stay focused"],
+      "responses": [
+        "Find a quiet space and eliminate noise distractions.",
+        "Use apps like Forest or Focus@Will to help you concentrate.",
+        "Set specific goals for each work session.",
+        "Take regular breaks to recharge your mind."
+      ]
+    },
+    {
+      "tag": "task_help",
+      "patterns": ["How do I manage tasks?", "Task management tips", "I need help with tasks"],
+      "responses": [
+        "Start by listing all your tasks. Prioritize them by urgency and importance.",
+        "Use a task management app or a simple to-do list.",
+        "Break larger tasks into smaller, manageable steps.",
+        "Review your tasks daily to stay on track."
+      ]
+    },
+    {
+      "tag": "task_add",
+      "patterns": ["Add task", "Remember to", "I need to", "Add to my list", "Schedule a task"],
+      "responses": ["Adding task: '{task}'. Would you like to set a deadline?", "Task noted: '{task}'. Should I remind you about this later?", "I'll remember: '{task}'. Priority level?"]
+    },
+    {
+      "tag": "task_list",
+      "patterns": ["What are my tasks?", "Show my to-do list", "What do I need to do?", "List tasks"],
+      "responses": ["Here are your current tasks:", "Your to-do list:", "These are your pending items:"]
+    },
+    {
+      "tag": "task_complete",
+      "patterns": ["I finished", "Mark as done", "Task complete", "Completed"],
+      "responses": ["Great job! I've marked '{task}' as complete.", "Congratulations on finishing '{task}'!", "Task completed! Keep up the good work."]
+    },
+    {
+      "tag": "task_clear",
+      "patterns": ["Clear all tasks", "Delete my list", "Start fresh"],
+      "responses": ["All tasks cleared! Fresh start!", "Your task list is now empty. Ready for new goals!", "Clean slate! What's first on your new list?"]
+    },
+    {
+      "tag": "motivation_general",
+      "patterns": ["Motivate me", "I need inspiration", "Feeling unmotivated", "Give me a push"],
+      "responses": [
+        "Remember why you started! You've got this!",
+        "Small progress is still progress. Keep going!",
+        "The expert in anything was once a beginner.",
+        "Your future self will thank you for starting today."
+      ]
+    },
+    {
+      "tag": "daily_quote",
+      "patterns": ["Quote of the day", "Inspirational quote", "Tell me something motivational"],
+      "responses": [
+        "\"The secret of getting ahead is getting started.\" - Mark Twain",
+        "\"You don't have to be great to start, but you have to start to be great.\" - Zig Ziglar",
+        "\"Success is the sum of small efforts, repeated day in and day out.\" - Robert Collier",
+        "\"The only limit to our realization of tomorrow is our doubts of today.\" - FDR"
+      ]
+    },
+    {
+      "tag": "self_care",
+      "patterns": ["Self-care tips", "How to relax", "I'm stressed", "Need self-care"],
+      "responses": [
+        "Try the 5-5-5 method: 5 deep breaths, 5 stretches, 5 sips of water.",
+        "Take a tech-free walk in nature to reset.",
+        "Practice gratitude - list 3 things you're thankful for.",
+        "Set boundaries to protect your energy."
+      ]
+    },
+    {
+      "tag": "sleep_help",
+      "patterns": ["Can't sleep", "Sleep tips", "How to sleep better"],
+      "responses": [
+        "Try a bedtime routine: warm tea, book, no screens 1 hour before bed.",
+        "Keep your bedroom cool, dark and quiet.",
+        "Avoid caffeine after 2pm for better sleep.",
+        "Try 4-7-8 breathing: inhale 4s, hold 7s, exhale 8s."
+      ]
+    },
+    {
+      "tag": "stress_management",
+      "patterns": ["I'm stressed", "How to handle stress", "Stress relief tips"],
+      "responses": [
+        "Practice mindfulness - focus on your breath for a few minutes.",
+        "Write down your worries - it helps clear your mind.",
+        "Engage in physical activity - even a short walk can help.",
+        "Talk to someone you trust about how you're feeling."
+      ]
+    },
+    {
+      "tag": "fitness_tips",
+      "patterns": ["Exercise tips", "How to get fit", "Workout ideas"],
+      "responses": [
+        "Start with 10 minutes daily - consistency beats intensity!",
+        "Try bodyweight exercises: squats, pushups, planks.",
+        "Find activities you enjoy - dancing counts as exercise!",
+        "Remember: rest days are just as important as workout days."
+      ]
+    },
+    {
+      "tag": "healthy_eating",
+      "patterns": ["Healthy food ideas", "What should I eat?", "Nutrition tips"],
+      "responses": [
+        "Fill half your plate with colorful veggies at meals.",
+        "Stay hydrated! Drink water before meals.",
+        "Prepare healthy snacks like nuts or cut veggies in advance.",
+        "The 80/20 rule: eat nutritious foods 80% of the time."
+      ]
+    },
+    {
+      "tag": "habit_building",
+      "patterns": ["How to build habits", "Make a new habit", "Habit formation"],
+      "responses": [
+        "Start small - aim for 2 minutes daily of your new habit.",
+        "Stack habits: do your new habit after an existing one.",
+        "Track your streak - don't break the chain!",
+        "Be patient - habits take 21+ days to form."
+      ]
+    },
+    {
+      "tag": "confidence_boost",
+      "patterns": ["How to be more confident", "Self-esteem tips", "I doubt myself"],
+      "responses": [
+        "Stand tall - power poses can boost confidence!",
+        "Focus on progress, not perfection.",
+        "Make a list of your past successes.",
+        "Speak to yourself like you would to a good friend."
+      ]
+    },
+    {
+      "tag": "joke",
+      "patterns": ["Tell me a joke", "Make me laugh", "I need humor"],
+      "responses": [
+        "Why don't scientists trust atoms? Because they make up everything!",
+        "I told my wife she was drawing her eyebrows too high. She looked surprised!",
+        "What do you call a fake noodle? An impasta!"
+      ]
+    },
+    {
+      "tag": "fun_activity",
+      "patterns": ["What should I do for fun?", "Bored", "Entertain me"],
+      "responses": [
+        "Try a new hobby like painting or learning an instrument!",
+        "Listen to a podcast on a topic you're curious about.",
+        "Call a friend you haven't spoken to in a while.",
+        "Go explore a new part of your neighborhood."
+      ]
+    },
+    {
+      "tag": "weather_ask",
+      "patterns": ["What's the weather?", "Do I need an umbrella?", "Weather forecast"],
+      "responses": [
+        "I can't check live weather, but here's how to prepare: always have layers ready!",
+        "For accurate forecasts, check your weather app. Remember sunscreen regardless!"
+      ]
+    },
+    {
+      "tag": "reminder_set",
+      "patterns": ["Remind me to", "Set a reminder", "Don't let me forget"],
+      "responses": [
+        "I'll remind you to '{task}'. When should I alert you?",
+        "Reminder set for '{task}'. Would you like to add details?"
+      ]
+    },
+    {
+      "tag": "reminder_list",
+      "patterns": ["What are my reminders?", "Show my reminders", "List reminders"],
+      "responses": ["Here are your current reminders:", "Your reminder list:", "These are the things I need to remind you about:"]
+    },
+    {
+      "tag": "reminder_clear",
+      "patterns": ["Clear all reminders", "Delete my reminders", "Start fresh with reminders"],
+      "responses": ["All reminders cleared! Ready for new ones!", "Your reminder list is now empty. What would you like to set next?"]
+    },
+    {
+      "tag": "no_understand",
+      "patterns": ["", "I don't understand", "Can you repeat?", "What does that mean?"],
+      "responses": [
+        "I didn't catch that. Could you rephrase?",
+        "My apologies, could you say that differently?",
+        "I'm still learning! Try asking in another way."
+      ]
+    },
+    {
+      "tag": "help",
+      "patterns": ["Help", "What can you do?", "How to use you", "Assistance"],
+      "responses": [
+        "I can help with: tasks, motivation, productivity, wellness, and more!",
+        "Try asking about: productivity tips, self-care, or task management.",
+        "I'm your assistant for: habits, goals, reminders, and inspiration!"
+      ]
+    }
+  ]
+}
