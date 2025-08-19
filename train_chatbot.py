@@ -1,82 +1,50 @@
+# train_chatbot.py (No TensorFlow)
 import json
-import numpy as np
-import nltk
-import tensorflow as tf
-from nltk.stem import WordNetLemmatizer
-from tensorflow import Sequential
-from tensorflow import Dense, Dropout
-from tensorflow import SGD
-import random
 import pickle
+import random
+import nltk
+from nltk.stem import WordNetLemmatizer
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.linear_model import LogisticRegression
 
-# Download necessary NLTK data
+# Make sure you have nltk data
 nltk.download('punkt')
 nltk.download('wordnet')
 
 lemmatizer = WordNetLemmatizer()
 
-# Load intents JSON
-with open("intents.json") as file:
-    data = json.load(file)
+# Load intents
+with open("intents.json", "r") as f:
+    intents = json.load(f)
 
-words = []
+# Collect training data
+sentences = []
+labels = []
 classes = []
-documents = []
-ignore_letters = ['?', '!', '.', ',']
 
-# Tokenize and prepare the data
-for intent in data['intents']:
-    for pattern in intent['patterns']:
-        word_list = nltk.word_tokenize(pattern)
-        words.extend(word_list)
-        documents.append((word_list, intent['tag']))
-        if intent['tag'] not in classes:
-            classes.append(intent['tag'])
+for intent in intents["intents"]:
+    tag = intent["tag"]
+    if tag not in classes:
+        classes.append(tag)
+    for pattern in intent["patterns"]:
+        sentences.append(pattern)
+        labels.append(tag)
 
-words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_letters]
-words = sorted(list(set(words)))
-classes = sorted(list(set(classes)))
+# Convert labels to indices
+class_to_idx = {c: i for i, c in enumerate(classes)}
+y = [class_to_idx[label] for label in labels]
 
-# Save words and classes
-pickle.dump(words, open('words.pkl', 'wb'))
-pickle.dump(classes, open('classes.pkl', 'wb'))
+# Vectorize sentences
+vectorizer = CountVectorizer(tokenizer=nltk.word_tokenize)
+X = vectorizer.fit_transform(sentences)
 
-# Training data
-training = []
-output_empty = [0] * len(classes)
+# Train Logistic Regression model
+model = LogisticRegression(max_iter=200)
+model.fit(X, y)
 
-for document in documents:
-    bag = []
-    pattern_words = [lemmatizer.lemmatize(w.lower()) for w in document[0]]
-    for w in words:
-        bag.append(1 if w in pattern_words else 0)
+# Save model, vectorizer, and classes
+pickle.dump(model, open("chatbot_model.pkl", "wb"))
+pickle.dump(vectorizer, open("vectorizer.pkl", "wb"))
+pickle.dump(classes, open("classes.pkl", "wb"))
 
-    output_row = list(output_empty)
-    output_row[classes.index(document[1])] = 1
-    training.append([bag, output_row])
-
-# Shuffle and convert to array
-random.shuffle(training)
-training = np.array(training, dtype=object)
-
-train_x = np.array(list(training[:, 0]))
-train_y = np.array(list(training[:, 1]))
-
-# Build model
-model = Sequential()
-model.add(Dense(128, input_shape=(len(train_x[0]),), activation='relu'))
-model.add(Dropout(0.5))
-model.add(Dense(64, activation='relu'))
-model.add(Dropout(0.5))
-model.add(Dense(len(train_y[0]), activation='softmax'))
-
-# Compile model
-sgd = SGD(learning_rate=0.01, decay=1e-6, momentum=0.9, nesterov=True)
-model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
-
-# Train model
-model.fit(train_x, train_y, epochs=200, batch_size=5, verbose=1)
-
-# Save model
-model.save("chatbot_model.h5")
-print("✅ Model trained and saved successfully!")
+print("Training complete. Model saved as chatbot_model.pkl, vectorizer.pkl, classes.pkl")
